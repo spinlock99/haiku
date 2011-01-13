@@ -1,0 +1,13 @@
+class AddMicropostLines < ActiveRecord::Migration
+  def self.up
+    add_column :micropost, :line0, :text
+    add_column :micropost, :line1, :text
+    add_column :micropost, :line2, :text
+  end
+
+  def self.down
+    remove_column :micropost, :line0
+    remove_column :micropost, :line1
+    remove_column :micropost, :line2
+  end
+end
