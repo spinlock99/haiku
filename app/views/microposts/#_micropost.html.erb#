@@ -1,0 +1,22 @@
+q<tr>
+  <td class="micropost">
+<<<<<<< master
+    <span class="content"><%= micropost.content %></span>
+=======
+    <span class="line0"><%= micropost.line0 %><br /></span>
+    <span class="line1"><%= micropost.line1 %><br /></span>
+    <span class="line2"><%= micropost.line2 %><br /></span>
+>>>>>>> local
+    <span class="timestamp">
+      Posted <%= time_ago_in_words(micropost.created_at) %> ago.
+    </span>
+  </td>
+  <% user = micropost.user rescue User.find(micropost.user_id) %>
+  <% if current_user?(user) %>
+  <td>
+    <%= link_to "delete", micropost, :method => :delete,
+                                     :confirm => "You sure?",
+                                     :title => micropost.content %>
+  </td>
+  <% end %>
+</tr>
