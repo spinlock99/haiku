@@ -11,6 +11,8 @@ Factory.sequence :email do |n|
 end
 
 Factory.define :micropost do |micropost|
-  micropost.content "Foo bar"
+  micropost.line0 "Foo bar"
+  micropost.line1 "sucka"
+  micropost.line2 "fool"
   micropost.association :user
 end

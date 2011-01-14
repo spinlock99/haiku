@@ -4,7 +4,11 @@ describe Micropost do
 
   before(:each) do
     @user = Factory(:user)
-    @attr = { :content => "value for content" }
+    @attr = { 
+      :line0 => "value for line0", 
+      :line1 => "value for line1", 
+      :line2 => "value for line2" 
+    }
   end
 
   it "should create a new instance given valid attributes" do
@@ -33,24 +37,28 @@ describe Micropost do
       Micropost.new(@attr).should_not be_valid
     end
 
-    it "should require nonblank content" do
-      @user.microposts.build(:content => "   ").should_not be_valid
-    end
-
-    it "should reject long content" do
-      @user.microposts.build(:content => "a" * 141).should_not be_valid
-    end
+#    it "should require nonblank content" do
+#      @user.microposts.build(:content => "   ").should_not be_valid
+#    end
+#
+#    it "should reject long content" do
+#      @user.microposts.build(:content => "a" * 141).should_not be_valid
+#    end
   end
 
   describe "from_user_followed_by" do
     before(:each) do
+      @attr = {
+        :line0 => "sucka",
+        :line1 => "sucka fool",
+        :line2 => "I ain't gettin' in no plane"
+      }
       @other_user = Factory(:user, :email => Factory.next(:email))
       @third_user = Factory(:user, :email => Factory.next(:email))
       
-      @user_post = @user.microposts.create!(:content => "sucka")
-      @other_post = @other_user.microposts.create!(:content => "sucka fool")
-      @third_post = @third_user.
-        microposts.create!(:content => "I ain't gettin' in no plane")
+      @user_post = @user.microposts.create!(@attr)
+      @other_post = @other_user.microposts.create!(@attr)
+      @third_post = @third_user.microposts.create!(@attr)
       
       @user.follow!(@other_user)
     end
