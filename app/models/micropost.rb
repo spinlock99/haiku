@@ -1,26 +1,10 @@
-# == Schema Information
-# Schema version: 20110113184647
-#
-# Table name: microposts
-#
-#  id         :integer         not null, primary key
-#  user_id    :integer
-#  created_at :datetime
-#  updated_at :datetime
-#  line0      :text
-#  line1      :text
-#  line2      :text
-#
-
 class Micropost < ActiveRecord::Base
-  attr_accessible :line0, :line1, :line2
+  attr_accessible :content
 
   belongs_to :user
 
+  validates :content, :presence => true, :length => { :maximum => 140 }
   validates :user_id, :presence => true
-  validates :line0, :presence => true
-  validates :line1, :presence => true
-  validates :line2, :presence => true
 
   default_scope :order => 'microposts.created_at DESC'
 

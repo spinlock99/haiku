@@ -1,28 +1,18 @@
 # == Schema Information
-# Schema version: 20110113184647
+# Schema version: 20101026193923
 #
 # Table name: users
 #
-#  id                 :integer         not null, primary key
-#  name               :string(255)
-#  email              :string(255)
-#  created_at         :datetime
-#  updated_at         :datetime
-#  encrypted_password :string(255)
-#  salt               :string(255)
-#  admin              :boolean
-#  portfolio_manager  :boolean
+#  id         :integer         not null, primary key
+#  name       :string(255)
+#  email      :string(255)
+#  created_at :datetime
+#  updated_at :datetime
 #
 
 class User < ActiveRecord::Base
   attr_accessor :password
-  attr_accessible :name, :email, :portfolio_manager, 
-                  :password, :password_confirmation
-
-  #
-  # Define a scope so that we can access only portfolio managers.
-  #
-  scope :portfolio_manager, where(:portfolio_manager => true)
+  attr_accessible :name, :email, :password, :password_confirmation
 
   has_many :microposts, :dependent => :destroy
   has_many :relationships, :foreign_key => "follower_id",

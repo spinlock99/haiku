@@ -23,11 +23,7 @@ describe MicropostsController do
 
     describe "failure" do
       before(:each) do
-        @attr = {
-          :line0 => "",
-          :line1 => "",
-          :line2 => ""
-        }
+        @attr = { :content => ""}
       end
       
       it "should not create a micropost" do
@@ -44,11 +40,7 @@ describe MicropostsController do
 
     describe "success" do
       before(:each) do
-        @attr = { 
-          :line0 => "line0",
-          :line1 => "line1",
-          :line2 => "line2"
-        }
+        @attr = { :content => "Lorem ipsum" }
       end
 
       it "should create a micropost" do

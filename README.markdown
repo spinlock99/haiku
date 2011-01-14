@@ -1,1 +1,5 @@
-Financial Application by Atomic Broadcast. All rights reserved.
+# Ruby on Rails Tutorial: sample application
+
+This is the sample application for
+[*Ruby on Rails Tutorial: Learn Rails by Example*](http://railstutorial.org/)
+by [Michael Halrtl](http://michaelhartl.com/).
