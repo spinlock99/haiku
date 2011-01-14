@@ -17,6 +17,11 @@ def make_users
                        :password => "foobar",
                        :password_confirmation => "foobar")
   admin.toggle!(:admin)
+  portfolio_manager = User.create!(:name => "Example PM",
+                                   :email => "pm@example.com",
+                                   :password => "testing",
+                                   :password_confirmation => "testing")
+  portfolio_manager.toggle!(:admin)
   99.times do |n|
     name = Faker::Name.name
     email = "example-#{n+1}@railstutorial.org"

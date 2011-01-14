@@ -149,6 +149,25 @@ describe User do
     end
   end
 
+  describe "portfolio manager attribute" do
+    before(:each) do
+      @user = User.create!(@attr)
+    end
+
+    it "should respond to portfolio_manager" do
+      @user.should respond_to(:portfolio_manager)
+    end
+
+    it "should not be a portfolio manager by default" do
+      @user.should_not be_portfolio_manager
+    end
+
+    it "should be convertible to a portfolio manager" do
+      @user.toggle!(:portfolio_manager)
+      @user.should be_portfolio_manager
+    end
+  end
+
   describe "micropost associations" do
     before(:each) do
       @user = User.create(@attr)

@@ -10,6 +10,10 @@ Factory.sequence :email do |n|
   "person-#{n}@example.com"
 end
 
+Factory.sequence :name do |n|
+  "name-#{n}"
+end
+
 Factory.define :micropost do |micropost|
   micropost.line0 "line0"
   micropost.line1 "line1"

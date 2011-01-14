@@ -48,6 +48,11 @@ class UsersController < ApplicationController
     @users = User.paginate(:page => params[:page])
   end
 
+  def portfolio_managers
+    @title = "Portfolio Managers"
+    @users = User.portfolio_manager.paginate(:page => params[:page])
+  end
+
   def show
     @user = User.find(params[:id])
     @title = @user.name
